@@ -53,4 +53,4 @@ Los conteos sin datos personales están en `waitlist_events`: visitas, "no tengo
 
 ## Cómo se publica
 
-Va en una carpeta pública de GitHub (`Dev-Sebastian28/punto-web`). Cada cambio guardado se publica solo. En Cloudflare, puntoappco.com apunta a GitHub Pages. Nada de esto se ha hecho todavía: espera tu visto bueno.
+El código está en una carpeta pública de GitHub (`Dev-Sebastian28/punto-web`). Para publicar un cambio se corre `publicar.sh` (o `npm run publicar`): arma la página y la sube a la rama `gh-pages`, que GitHub Pages muestra en puntoappco.com. En Cloudflare, puntoappco.com apunta a GitHub Pages.
