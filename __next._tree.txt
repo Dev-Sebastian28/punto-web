@@ -1,0 +1,5 @@
+:HL["/_next/static/chunks/25a6dvte6i984.css","style"]
+:HL["/_next/static/media/plus_jakarta_sans-s.p.1k_s81bk66nap.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/img/logo-fondo-oscuro.png","image"]
+1:[["children",{"s":"__PAGE__","h":160}]]
+0:{"b":"OAH6Db0-FBJj4-99HmMNy","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
