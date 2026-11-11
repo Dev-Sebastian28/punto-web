@@ -1,0 +1,32 @@
+{
+  "name": "punto-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "La web de Punto (puntoappco.com): la lista de espera y TestFlight para dueños de camión en Colombia.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@gsap/react": "2.1.2",
+    "gsap": "3.15.1",
+    "lenis": "1.3.27",
+    "next": "16.4.1",
+    "react": "19.2.9",
+    "react-dom": "19.2.9"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.5",
+    "@types/node": "22.19.9",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.16.0",
+    "eslint-config-next": "16.4.1",
+    "postcss": "8.5.32",
+    "tailwindcss": "4.3.5",
+    "typescript": "5.7.3"
+  }
+}

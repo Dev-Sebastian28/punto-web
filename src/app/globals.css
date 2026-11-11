@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+/* La marca de Punto. Los colores salen de la app (Punto/Brand) y el amarillo, de las placas de los camiones. */
+@theme {
+  --color-navy: #0B1F3A;
+  --color-navy-deep: #081629;
+  --color-navy-raised: #13294A;
+  --color-blue: #0057CC;
+  --color-blue-night: #7DB0FF;
+  --color-logo-night: #2B7BEF;
+  --color-route-night: #DDE6F3;
+  --color-plate: #FFC928;
+  --color-plate-hover: #FFD24D;
+  --color-ink: #0B1F3A;
+  --color-ink-soft: #5A6472;
+  --color-on-navy-soft: #B9C6D8;
+  --color-page: #F4F6F9;
+  --color-line: #E2E6EC;
+  --color-selected: #E8ECF2;
+  --color-success: #248A3D;
+  --color-danger: #C62828;
+  --color-whatsapp: #25D366;
+
+  --font-sans: var(--font-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --radius-field: 8px;
+  --radius-button: 10px;
+  --radius-card: 16px;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--color-navy);
+  }
+  body {
+    background: var(--color-page);
+    color: var(--color-ink);
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.025em; line-height: 1.05; }
+  p { text-wrap: pretty; }
+  a { text-underline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--color-blue); outline-offset: 3px; border-radius: 4px; }
+  .on-navy :focus-visible { outline-color: var(--color-plate); }
+  ::selection { background: var(--color-plate); color: var(--color-navy); }
+}
+
+@layer components {
+  /* La placa: amarilla con borde oscuro, como las de los camiones en Colombia. */
+  .plate {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--color-plate); color: var(--color-navy);
+    border: 2px solid var(--color-navy-deep); border-radius: 6px;
+    padding: 3px 10px; font-weight: 800; font-size: 13px; letter-spacing: 0.08em;
+    text-transform: uppercase; line-height: 1.3; white-space: nowrap;
+    box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.35);
+  }
+  .on-navy .plate { border-color: var(--color-plate); box-shadow: 0 0 0 2px var(--color-navy-deep), inset 0 0 0 2px var(--color-navy-deep); }
+
+  /* El botón principal también es una placa. Uno solo por pantalla. */
+  .btn-plate {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 54px; padding: 0 26px;
+    background: var(--color-plate); color: var(--color-navy);
+    border: 2px solid var(--color-navy-deep); border-radius: var(--radius-button);
+    font-size: 17px; font-weight: 800; text-decoration: none; cursor: pointer;
+    box-shadow: 0 4px 0 var(--color-navy-deep);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-plate:hover { background: var(--color-plate-hover); }
+  .btn-plate:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--color-navy-deep); }
+  .btn-plate[disabled] { opacity: 0.6; cursor: progress; }
+
+  .btn-whatsapp {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+    min-height: 54px; padding: 0 22px; border-radius: var(--radius-button);
+    background: var(--color-whatsapp); color: #062B14; border: 2px solid #0B4D24; box-shadow: 0 4px 0 #0B4D24;
+    font-weight: 800; text-decoration: none; transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .btn-whatsapp:active { transform: translateY(3px); box-shadow: 0 1px 0 #0B4D24; }
+
+  .btn-testflight {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+    min-height: 54px; padding: 0 22px; border-radius: var(--radius-button);
+    background: var(--color-blue); color: #fff; border: 2px solid #003B8C; box-shadow: 0 4px 0 #003B8C;
+    font-weight: 800; text-decoration: none; transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .btn-testflight:active { transform: translateY(3px); box-shadow: 0 1px 0 #003B8C; }
+
+  .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-blue); }
+  .on-navy .eyebrow { color: var(--color-blue-night); }
+
+  /* Aviso de obra para lo que está en construcción: franjas amarillas y negras, como en la vía. */
+  .obra {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--color-plate); color: #111; border: 2px solid #111; border-radius: 6px;
+    font-weight: 800; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px;
+    box-shadow: 0 6px 18px rgb(0 0 0 / 0.25);
+  }
+  .obra-tape {
+    height: 14px; border-top: 2px solid #111; border-bottom: 2px solid #111;
+    background: repeating-linear-gradient(-45deg, var(--color-plate) 0 12px, #111 12px 24px);
+  }
+
+  .input {
+    width: 100%; min-height: 54px; border-radius: var(--radius-field); border: 1.5px solid #C9D1DC;
+    background: #fff; font-size: 17px; color: var(--color-ink); padding: 0 14px;
+    transition: border-color 0.12s ease, box-shadow 0.12s ease;
+  }
+  .input::placeholder { color: #8A94A3; }
+  .input:focus { outline: none; border-color: var(--color-blue); box-shadow: 0 0 0 3px rgb(0 87 204 / 0.18); }
+  [aria-invalid="true"].input { border-color: var(--color-danger); }
+
+  .choice {
+    min-height: 54px; border-radius: var(--radius-button); border: 2px solid var(--color-line); background: #fff;
+    font-weight: 700; color: var(--color-ink); cursor: pointer; padding: 6px 10px;
+    display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center; line-height: 1.2;
+    transition: border-color 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+  }
+  .choice:hover { border-color: #C6CEDA; }
+  .choice[aria-pressed="true"], input:checked + .choice { border-color: var(--color-blue); background: rgb(0 87 204 / 0.08); color: var(--color-blue); }
+  input:focus-visible + .choice { outline: 3px solid var(--color-blue); outline-offset: 2px; }
+}
+
+/* Lo que entra animado al abrir la página espera escondido a que GSAP lo tome (o a la red de seguridad de 2,5 s). */
+@media (prefers-reduced-motion: no-preference) {
+  html.js:not(.ready) [data-intro] { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
