@@ -4,8 +4,8 @@ La página donde los dueños de camión se anotan en la lista de espera y, al an
 
 ## Estado (10 de noviembre de 2026)
 
-- **La web está hecha y probada en el computador**, en tamaño celular y de computador. Todavía **no está publicada**.
-- **La lista en Supabase todavía no existe.** El cambio está listo en `supabase/20261110120000_waitlist.sql`, pero no se ha aplicado. Hasta que exista, el formulario dice "No se pudo guardar".
+- **La web está hecha y probada** en tamaño celular y de computador, y subida a GitHub. puntoappco.com se conecta en Cloudflare.
+- **La lista en Supabase ya existe** (creada el 11 de noviembre con `supabase/20261110120000_waitlist.sql`). Se probó: anotarse funciona, el mismo número no se repite, la trampa descarta robots y desde afuera no se puede leer ni escribir la lista. Las pruebas se borraron: arrancó en cero.
 - **TestFlight todavía no tiene enlace.** Mientras tanto, quien se anota lee "Te mando el enlace por WhatsApp apenas Apple lo apruebe". Cuando exista, va en `src/lib/config.ts`, en `TESTFLIGHT_URL`.
 
 ## Qué hay en cada parte
@@ -42,7 +42,7 @@ Cada red lleva su nombre al final del enlace, y cada inscripción guarda de dón
 | Tu estado y mensajes de WhatsApp | puntoappco.com/?de=whatsapp |
 | Grupos | puntoappco.com/?de=grupo |
 
-## Ver la lista (cuando exista)
+## Ver la lista
 
 En Supabase, en el proyecto de la app: **Table Editor → `waitlist_signups`**. Ahí están:
 
